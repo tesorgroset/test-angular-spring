@@ -17,7 +17,7 @@ import org.springframework.web.filter.CorsFilter;
 
 /**
  * Clase principal de spring boot donde arranca la aplicacion y se inicializan los datos
- * @author 67282558
+ * @author tesorgroset
  *
  */
 @SpringBootApplication
