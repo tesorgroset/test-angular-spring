@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="debug">
+	<Appenders>
+		<Console name="logConsola" target="SYSTEM_OUT" />
+		<File name="logFichero" fileName="c:/proyectos/brator/log/rest-angular.log" />
+	</Appenders>
+	<Loggers>
+		<Logger name="com.example.demo" additivity="false">
+			<AppenderRef ref="logConsola" />
+			<AppenderRef ref="logFichero" />
+		</Logger>
+		<Logger name="org.springframework.boot" additivity="false">
+			<AppenderRef ref="logConsola" />
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="logConsola" />
+			<AppenderRef ref="logFichero" />
+		</Root>
+	</Loggers>
+</Configuration>
