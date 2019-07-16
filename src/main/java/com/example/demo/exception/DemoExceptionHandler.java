@@ -17,7 +17,6 @@ public class DemoExceptionHandler extends ResponseEntityExceptionHandler{
 	public void manejadorExcepciones(Throwable ex) throws Throwable{
 		try {
 			ex.printStackTrace(new PrintWriter("c:/proyectos/brator/log/rest-angular.log"));
-			
 		} catch (FileNotFoundException e) {
 			log.error("Fichero de log no encontrado"+e.getMessage());
 		}
