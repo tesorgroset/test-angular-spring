@@ -15,8 +15,12 @@ public class PersonaController {
 
 	@GetMapping(value="/personas/anio-matriculacion", consumes=MediaType.TEXT_PLAIN_VALUE, produces=MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> calculaAnioMatriculacion(@RequestParam(required=true) String matricula){
-		log.debug("devolviendo el año de matriculacion");
+		log.info("devolviendo el año de matriculacion");
 		return ResponseEntity.ok("09/05/1978");  
 	}
 	
 }
+
+
+
+
