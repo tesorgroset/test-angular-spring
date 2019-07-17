@@ -14,9 +14,9 @@ import lombok.extern.log4j.Log4j2;
 public class PersonaController {
 
 	@GetMapping(value="/personas/anio-matriculacion", consumes=MediaType.TEXT_PLAIN_VALUE, produces=MediaType.TEXT_PLAIN_VALUE)
-	public ResponseEntity<String> calculaAnioMatriculacion(@RequestParam(required=true) String matricula){
+	public String calculaAnioMatriculacion(@RequestParam(required=true) String matricula){
 		log.info("devolviendo el año de matriculacion");
-		return ResponseEntity.ok("09/05/1978");  
+		return matricula+"09/05/1978";  
 	}
 	
 }
