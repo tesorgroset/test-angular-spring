@@ -4,6 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 public class Person {
@@ -11,11 +21,20 @@ public class Person {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@NotBlank @Size(min=3, max=17)
 	private String firstName;
+	
+	@NotBlank @Size(min=3, max=35)
 	private String lastName;
+	
+	@Positive @Range(max=125)
 	private int edad;
+	
 	private String direccion;
 	private String modeloCoche;
+	
+	@NotBlank //@Pattern(regexp="")
 	private String matricula;
 
 	public String getFirstName() {
