@@ -2,7 +2,7 @@
 <Configuration status="debug">
 	<Appenders>
 		<File name="logFichero" fileName="c:/proyectos/brator/log/rest-angular.log">
-			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<PatternLayout pattern="%d{dd-MM-yyyy HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</File>
 	</Appenders>
 	<Loggers>

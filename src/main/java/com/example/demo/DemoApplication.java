@@ -15,6 +15,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
+import com.example.demo.entity.Person;
+
 
 /**
  * Clase principal de spring boot donde arranca la aplicacion y se inicializan los datos
