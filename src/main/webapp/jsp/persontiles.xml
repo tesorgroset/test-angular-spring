@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Plantilla padre de todas las paginas jsp -->
+	<definition name="template-def" template="/jsp/commons/defaultLayout.jsp">
+		<put-attribute name="body" value="" />
+	</definition>
+	
+	<!-- pagina con el listado de personas -->
+	<definition name="person/list" extends="template-def">
+		<put-attribute name="body" value="/jsp/person/personlist.jsp" />
+	</definition> 
+	
+	<!-- pagina de consulta de persona -->
+	<definition name="person/query" extends="template-def">
+		<put-attribute name="body" value="/jsp/person/personQuery.jsp" />
+	</definition>
+</tiles-definitions>

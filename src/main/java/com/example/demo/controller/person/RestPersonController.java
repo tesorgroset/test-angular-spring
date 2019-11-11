@@ -1,13 +1,11 @@
-package com.example.demo.controller;
+package com.example.demo.controller.person;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,7 +23,7 @@ import lombok.extern.log4j.Log4j2;
 
 @RestController
 @Log4j2
-public class PersonaController extends PrincipalController{
+public class RestPersonController{
 	
 	@Autowired
 	private PersonService personService;

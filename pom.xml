@@ -12,6 +12,7 @@
 	<artifactId>rest-angular</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -24,14 +25,13 @@
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
-        </dependency>		
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		
+		<!-- <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency> -->
 		<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -64,7 +64,31 @@
                <groupId>org.projectlombok</groupId>
                <artifactId>lombok</artifactId>
                <version>1.16.16</version>
-        </dependency>		
+        </dependency>	
+        
+		<!-- Tomcat Embed -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- JSTL -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+        <!-- To compile JSP files -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+		<dependency>
+		    <groupId>org.apache.tiles</groupId>
+		    <artifactId>tiles-jsp</artifactId>
+		    <version>3.0.8</version>
+		</dependency>    	
 	</dependencies>
 
 	<build>
