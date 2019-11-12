@@ -17,4 +17,9 @@
 	<definition name="person/query" extends="template-def">
 		<put-attribute name="body" value="/jsp/person/personQuery.jsp" />
 	</definition>
+	
+	<!-- pagina de edicion de persona -->
+	<definition name="person/edit" extends="template-def">
+		<put-attribute name="body" value="/jsp/person/personEdit.jsp" />
+	</definition>
 </tiles-definitions>
