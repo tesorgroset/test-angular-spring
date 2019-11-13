@@ -4,7 +4,7 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th style="width:35%"><fmt:message key="personas.nombre" /></th>
+      <th style="width:35%"><fmt:message key="personas.nombre" />modificado</th>
       <th style="width:10%"><fmt:message key="personas.edad" /></th>
       <th style="width:20%"><fmt:message key="personas.matricula" /></th>
       <th style="width:25%"><fmt:message key="personas.modelo" /></th>

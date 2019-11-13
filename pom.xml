@@ -96,6 +96,13 @@
 		    <version>3.0.8</version>
 		</dependency>
 		
+		<!-- include for hot reloading jsp's and static files -->
+		<dependency>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-devtools</artifactId>
+		      <optional>true</optional>
+		</dependency>		
+		
 	</dependencies>
 
 	<build>

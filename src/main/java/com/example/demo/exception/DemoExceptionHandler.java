@@ -31,11 +31,11 @@ public class DemoExceptionHandler  extends ResponseEntityExceptionHandler{
 	}	
 	
 	
-	@Override
+	/*@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		String message = ex.getBindingResult().getFieldErrors().get(0).getDefaultMessage();
 		return new ResponseEntity<>(message,HttpStatus.BAD_REQUEST);
-	}
+	}*/
 	
 }
