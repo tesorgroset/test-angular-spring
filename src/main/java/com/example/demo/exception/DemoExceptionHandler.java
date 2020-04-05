@@ -2,6 +2,11 @@ package com.example.demo.exception;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -29,6 +34,28 @@ public class DemoExceptionHandler  extends ResponseEntityExceptionHandler{
 		}
 		return new ResponseEntity<>(ErrorMessages.UNKNOWN_ERROR,HttpStatus.BAD_REQUEST);
 	}	
+	
+	// error handle for @Valid
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+                                                                  HttpHeaders headers,
+                                                                  HttpStatus status, WebRequest request) {
+
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", new Date());
+
+        //Get all errors
+        List<String> errors = ex.getBindingResult()
+                .getFieldErrors()
+                .stream()
+                .map(x -> x.getDefaultMessage())
+                .collect(Collectors.toList());
+
+        body.put("errors", errors);
+
+        return new ResponseEntity<>(body, headers, status);
+
+    }	
 	
 	
 	/*@Override

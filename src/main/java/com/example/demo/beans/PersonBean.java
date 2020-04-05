@@ -16,23 +16,23 @@ public class PersonBean {
 	
 	private long id;
 
-	@NotBlank(message=ErrorMessages.PERSON_FIRST_NAME)
-	@Size(min=3, max=17, message=ErrorMessages.PERSON_FIRST_NAME)
+	@NotBlank(message=ErrorMessages.PERSON_FIRST_NAME_REQUIRED)
+	@Size(min=3, max=17, message=ErrorMessages.PERSON_FIRST_NAME_LENGTH)
 	private String firstName;
 	
-	@NotBlank(message=ErrorMessages.PERSON_LAST_NAME) 
-	@Size(min=3, max=35, message=ErrorMessages.PERSON_LAST_NAME)
+	@NotBlank(message=ErrorMessages.PERSON_LAST_NAME_REQUIRED) 
+	@Size(min=3, max=35, message=ErrorMessages.PERSON_LAST_NAME_LENGTH)
 	private String lastName;
 	
-	@Positive(message=ErrorMessages.PERSON_EDAD) 
-	@Range(max=125,message=ErrorMessages.PERSON_EDAD)
+	@Positive(message=ErrorMessages.PERSON_EDAD_POSITIVE) 
+	@Range(max=125,message=ErrorMessages.PERSON_EDAD_RANGE)
 	private int edad;
 	
 	private String direccion;
 	
 	private String modeloCoche;
 	
-	@NotBlank(message=ErrorMessages.PERSON_MATRICULA)
+	@NotBlank(message=ErrorMessages.PERSON_MATRICULA_REQUIRED)
 	private String matricula;
 
 	public Person toEntity() {

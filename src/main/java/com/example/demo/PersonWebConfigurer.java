@@ -2,12 +2,13 @@ package com.example.demo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
-@Configuration
+//@Configuration
 public class PersonWebConfigurer implements WebMvcConfigurer{
 
 	@Bean
@@ -22,5 +23,6 @@ public class PersonWebConfigurer implements WebMvcConfigurer{
 		TilesViewResolver tilesResolver = new TilesViewResolver();
 		registry.viewResolver(tilesResolver);
 	}
+	
 	
 }
