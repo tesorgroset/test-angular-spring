@@ -46,8 +46,8 @@ public class DemoApplication {
 	@Bean
 	public ApplicationRunner init(PersonRepository personRepository){
 		return args -> {
-			Stream.of(Arrays.asList("Luis","Virseda",25,"calle alcala num 345","alpha romeo","8765FRC"),
-					  Arrays.asList("Pepe","Gomez",56,"avenida del castille num 12","renault megane","6581ERR")).forEach(p -> {
+			Stream.of(Arrays.asList("Luis","Virseda",25,"calle alcala num 345","alpha romeo","8765FRC","userluis","pwluis"),
+					  Arrays.asList("Pepe","Gomez",56,"avenida del castille num 12","renault megane","6581ERR","userpepe","pwpepe")).forEach(p -> {
 				Person ePerson = new Person();
 				ePerson.setFirstName((String)p.get(0));
 				ePerson.setLastName((String)p.get(1));
@@ -55,6 +55,8 @@ public class DemoApplication {
 				ePerson.setDireccion((String)p.get(3));
 				ePerson.setModeloCoche((String)p.get(4));
 				ePerson.setMatricula((String)p.get(5));
+				ePerson.setUser((String)p.get(6));
+				ePerson.setPassword((String)p.get(7));
 				personRepository.save(ePerson);
 			});
 		};

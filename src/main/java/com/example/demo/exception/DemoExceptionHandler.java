@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import org.assertj.core.util.Arrays;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,35 +27,37 @@ import lombok.extern.log4j.Log4j2;
 public class DemoExceptionHandler  extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler(Throwable.class)
-	public ResponseEntity<String> manejadorExcepciones(Throwable ex) throws Throwable{
-		try {
-			ex.printStackTrace(new PrintWriter("c:/proyectos/brator/log/rest-angular.log"));
-		} catch (FileNotFoundException e) {
-			log.error("Fichero de log no encontrado"+e.getMessage());
-		}
-		return new ResponseEntity<>(ErrorMessages.UNKNOWN_ERROR,HttpStatus.BAD_REQUEST);
+	public ResponseEntity<Object> manejadorExcepciones(Throwable ex, HttpHeaders headers, HttpStatus status) throws Throwable{
+		String unkError = ErrorMessages.UNKNOWN_ERROR+": ";
+		unkError += ex.getMessage();
+		return new ResponseEntity<>(setBodyErrors(Arrays.asList(new String[] {unkError})), headers, status);
 	}	
 	
+	@ExceptionHandler(UserPasswordIncorrectException.class)
+	public ResponseEntity<Object> handleUserAndPassworedException(UserPasswordIncorrectException upiException,
+																HttpHeaders headers,
+													            HttpStatus status, WebRequest request){
+		return new ResponseEntity<>(setBodyErrors(Arrays.asList(new String[] {ErrorMessages.LOGIN_USER_PW_INCORRECT})), headers, status);
+	}
+	
+	private Map<String,Object> setBodyErrors(List<Object> errorList) {
+        Map<String, Object> body = new LinkedHashMap<>();
+        body.put("timestamp", new Date());
+        body.put("errors", errorList);
+        return body;
+	}
+
 	// error handle for @Valid
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers,
                                                                   HttpStatus status, WebRequest request) {
-
-        Map<String, Object> body = new LinkedHashMap<>();
-        body.put("timestamp", new Date());
-
-        //Get all errors
-        List<String> errors = ex.getBindingResult()
+        List<Object> errors = ex.getBindingResult()
                 .getFieldErrors()
                 .stream()
                 .map(x -> x.getDefaultMessage())
                 .collect(Collectors.toList());
-
-        body.put("errors", errors);
-
-        return new ResponseEntity<>(body, headers, status);
-
+        return new ResponseEntity<>(setBodyErrors(errors), headers, status);
     }	
 	
 	

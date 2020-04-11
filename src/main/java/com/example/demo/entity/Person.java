@@ -23,6 +23,12 @@ import lombok.Data;
 @Entity
 @Table(name="person")
 public class Person extends PrincipalEntity{
+	
+	@Column(name="user")
+	private String user;
+	
+	@Column(name="password")
+	private String password;
 
 	@Column(name="first_name")
 	private String firstName;
